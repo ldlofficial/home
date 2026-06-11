@@ -39,33 +39,20 @@
       pointer-events: none;
       transition: background 0.5s ease;
     }
-    .video-modal.active {
-      background: rgba(0,0,0,0.85);
-      pointer-events: all;
-    }
+    .video-modal.active { background: rgba(0,0,0,0.85); pointer-events: all; }
     .video-modal-inner {
-      position: relative;
-      width: min(90vw, 900px);
-      aspect-ratio: 16/9;
-      opacity: 0;
-      transform: scale(0.92) translateY(24px);
+      position: relative; width: min(90vw, 900px); aspect-ratio: 16/9;
+      opacity: 0; transform: scale(0.92) translateY(24px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .video-modal.active .video-modal-inner {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-    .video-modal-inner iframe {
-      width: 100%; height: 100%;
-      border: none;
-    }
+    .video-modal.active .video-modal-inner { opacity: 1; transform: scale(1) translateY(0); }
+    .video-modal-inner iframe { width: 100%; height: 100%; border: none; }
     .video-modal-close {
       position: absolute; top: -2.5rem; right: 0;
       font-family: var(--font-sans); font-size: 0.7rem;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: rgba(255,255,255,0.6); cursor: pointer;
-      background: none; border: none;
-      transition: color 0.2s;
+      background: none; border: none; transition: color 0.2s;
     }
     .video-modal-close:hover { color: #fff; }
 
@@ -79,7 +66,8 @@
       border-bottom: 0.5px solid var(--border);
     }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .nav-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.18em; }
+    .nav-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.18em; display: flex; flex-direction: column; gap: 0.1rem; }
+    .nav-logo-sub { font-family: var(--font-sans); font-size: 0.52rem; font-weight: 300; letter-spacing: 0.14em; color: var(--navy); opacity: 0.4; text-transform: uppercase; }
     .nav-right { display: flex; align-items: center; gap: 2.5rem; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); text-decoration: none; opacity: 0.65; transition: opacity 0.2s; }
@@ -100,23 +88,21 @@
     .hero-keywords { display: flex; align-items: center; gap: 1.2rem; animation: fadeUp 1s 0.5s ease both; position: relative; z-index: 1; }
     .hero-keywords span { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy); opacity: 0.35; }
     .hero-keywords .dot { opacity: 0.2; font-size: 0.5rem; }
-    .hero-desc { max-width: 560px; font-size: 1.05rem; line-height: 1.9; color: var(--navy); opacity: 0.65; animation: fadeUp 1s 0.5s ease both; text-align: center; margin-left: auto; margin-right: auto; }
 
-    /* Watch PV ボタン */
-    .hero-pv-btn {
-      margin-top: 2.5rem;
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--navy);
-      border: 0.5px solid rgba(29,58,107,0.35); padding: 0.75rem 1.6rem;
-      cursor: pointer; background: transparent;
-      opacity: 0; animation: fadeUp 1s 0.8s ease both; animation-fill-mode: forwards;
-      transition: background 0.2s, color 0.2s, opacity 0.2s;
-      position: relative; z-index: 1;
-    }
-    .hero-pv-btn:hover { background: var(--navy); color: #fff; }
-    .hero-pv-btn svg { transition: transform 0.2s; }
-    .hero-pv-btn:hover svg { transform: scale(1.15); }
+    /* ── VISION / MISSION / TAGLINE ── */
+    #vmt { border-top: 0.5px solid var(--border); }
+    .vmt-wrap { max-width: 1100px; margin: 0 auto; padding: 7rem 4rem; }
+    .vmt-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
+    .vmt-header-label { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+    .vmt-header-rule { flex: 1; height: 0.5px; background: var(--border); }
+    .vmt-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .vmt-item { padding: 2.5rem 3rem 2.5rem 0; border-right: 0.5px solid var(--border); }
+    .vmt-item:nth-child(2) { padding-left: 3rem; }
+    .vmt-item:last-child { border-right: none; padding-left: 3rem; padding-right: 0; }
+    .vmt-item-label { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .vmt-item-text { font-family: var(--font-display); font-size: clamp(1.15rem, 1.8vw, 1.5rem); font-weight: 300; color: var(--navy); line-height: 1.55; }
+    .vmt-item-text em { font-style: italic; color: var(--gold); }
+    .vmt-item-sub { margin-top: 0.85rem; font-family: var(--font-sans); font-size: 0.77rem; font-weight: 300; color: var(--navy); opacity: 0.42; line-height: 1.7; letter-spacing: 0.02em; }
 
     /* ── SECTIONS ── */
     .section-wrap { padding: 7rem 4rem; max-width: 1100px; margin: 0 auto; }
@@ -128,7 +114,6 @@
     .section-rule { width: 40px; height: 0.5px; background: var(--gold); margin-bottom: 3rem; }
 
     #about { border-top: 0.5px solid var(--border); }
-    .about-text p { font-size: 1.05rem; line-height: 1.95; color: var(--text); opacity: 0.8; margin-bottom: 1.5rem; }
     .mission-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; }
     .mission-pillar { border-top: 0.5px solid var(--border); padding-top: 2rem; }
     .mission-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold); opacity: 0.4; line-height: 1; margin-bottom: 1rem; }
@@ -156,7 +141,7 @@
     .coming-soon-desc { font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.04em; line-height: 1.8; max-width: 400px; }
 
     #note { border-top: 0.5px solid var(--border); }
-    .note-inner { display: flex; align-items: stretch; gap: 0; border: 0.5px solid var(--border); }
+    .note-inner { display: flex; align-items: stretch; border: 0.5px solid var(--border); }
     .note-accent { width: 3px; background: var(--gold); flex-shrink: 0; }
     .note-body { display: flex; align-items: center; justify-content: space-between; padding: 2.5rem 3rem; flex: 1; gap: 3rem; }
     .note-body-left { flex: 1; }
@@ -170,23 +155,47 @@
     #contact { border-top: 0.5px solid var(--border); text-align: center; }
     #contact .section-rule { margin: 0 auto 3rem; }
     .contact-desc { font-size: 1.05rem; line-height: 1.9; color: var(--navy); opacity: 0.7; max-width: 480px; margin: 0 auto 2.5rem; }
-    .contact-email { display: inline-block; font-family: var(--font-display); font-size: 1.4rem; color: var(--navy); text-decoration: none; border-bottom: 0.5px solid var(--gold); padding-bottom: 0.2rem; transition: opacity 0.2s; }
-    .contact-email:hover { opacity: 0.65; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); text-decoration: none; border: 0.5px solid var(--navy); padding: 1rem 2rem; margin-bottom: 1.5rem; transition: background 0.2s, color 0.2s; }
+    .contact-btn:hover { background: var(--navy); color: #fff; }
+    .contact-btn svg { transition: transform 0.2s; }
+    .contact-btn:hover svg { transform: translateX(3px); }
+    .contact-email-sub { margin-top: 0.5rem; }
+    .contact-email-sub a { font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); text-decoration: none; opacity: 0.45; border-bottom: 0.5px solid var(--gold); padding-bottom: 0.15rem; transition: opacity 0.2s; }
+    .contact-email-sub a:hover { opacity: 0.75; }
 
-    footer { border-top: 0.5px solid var(--border); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.18em; opacity: 0.5; }
-    .footer-center { display: flex; align-items: center; gap: 1.5rem; }
-    .footer-social { display: flex; align-items: center; gap: 1rem; }
-    .footer-social a { display: flex; align-items: center; color: var(--navy); opacity: 0.4; transition: opacity 0.2s; text-decoration: none; }
-    .footer-social a:hover { opacity: 0.8; }
-    .footer-copy { font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-muted); }
+    footer { border-top: 0.5px solid var(--border); padding: 3.5rem 4rem 2rem; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem; margin-bottom: 3rem; }
+    .footer-brand { flex-shrink: 0; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--navy); letter-spacing: 0.18em; opacity: 0.6; display: block; margin-bottom: 0.75rem; }
+    .footer-brand-sub { font-family: var(--font-sans); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.06em; line-height: 1.7; }
+    .footer-cols { display: flex; gap: 4rem; }
+    .footer-col-title { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .footer-col p, .footer-col address { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-muted); line-height: 1.8; font-style: normal; }
+    .footer-col a { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-muted); text-decoration: none; display: block; line-height: 1.8; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--navy); }
+    .footer-bottom { border-top: 0.5px solid var(--border); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-legal-name { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.06em; color: var(--text-muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .footer-copy { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.06em; color: var(--text-muted); opacity: 0.7; }
+    .footer-legal-links { display: flex; gap: 1.5rem; }
+    .footer-legal-links a { font-family: var(--font-sans); font-size: 0.65rem; color: var(--text-muted); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
+    .footer-legal-links a:hover { opacity: 1; }
+    @media (max-width: 768px) {
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-top { flex-direction: column; gap: 2.5rem; }
+      .footer-cols { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .section-wrap, .section-full { padding: 5rem 1.5rem; }
+      .section-wrap, .section-full, .vmt-wrap { padding: 5rem 1.5rem; }
+      .vmt-grid { grid-template-columns: 1fr; }
+      .vmt-item { border-right: none; border-bottom: 0.5px solid var(--border); padding: 2rem 0; }
+      .vmt-item:nth-child(2) { padding-left: 0; }
+      .vmt-item:last-child { padding-left: 0; border-bottom: none; }
       .mission-pillars { grid-template-columns: 1fr; }
       .method-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -206,7 +215,7 @@
 <nav>
   <a href="#hero" class="nav-logo">
     <svg width="38" height="42" viewBox="0 0 120 132" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
-    <span class="nav-logo-text">LDL</span>
+    <span class="nav-logo-text">LDL<span class="nav-logo-sub">Luminaries Development Lab</span></span>
   </a>
   <div class="nav-right">
     <ul class="nav-links">
@@ -260,13 +269,42 @@
     <span class="dot">·</span>
     <span>Passionate</span>
   </div>
-  <!-- PV一時非公開中
-  <button class="hero-pv-btn" onclick="openModal()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-    <span data-lang-inline="ja">PVを見る</span><span data-lang-inline="en">Watch PV</span>
-  </button>
-  -->
 </section>
+
+<!-- VISION / MISSION / TAGLINE -->
+<div id="vmt">
+  <div class="vmt-wrap">
+    <div class="vmt-header">
+      <span class="vmt-header-label">Foundation</span>
+      <div class="vmt-header-rule"></div>
+    </div>
+    <div class="vmt-grid">
+      <div class="vmt-item">
+        <p class="vmt-item-label">Vision</p>
+        <div data-lang="ja">
+          <p class="vmt-item-text">誰もが、自分の分野で<em>パイオニア</em>になれる世界。</p>
+          <p class="vmt-item-sub">A world where anyone can become a pioneer in their field.</p>
+        </div>
+        <div data-lang="en">
+          <p class="vmt-item-text">A world where anyone can become a <em>pioneer</em> in their field.</p>
+          <p class="vmt-item-sub">誰もが、自分の分野でパイオニアになれる世界。</p>
+        </div>
+      </div>
+      <div class="vmt-item">
+        <p class="vmt-item-label">Mission</p>
+        <div data-lang="ja">
+          <p class="vmt-item-text">科学的にエフィカシーを高め、各界に<em>パイオニア</em>を輩出する。</p>
+          <p class="vmt-item-sub">Scientifically elevating efficacy to produce pioneers across every field.</p>
+        </div>
+        <div data-lang="en">
+          <p class="vmt-item-text">Scientifically elevating efficacy to produce <em>pioneers</em> across every field.</p>
+          <p class="vmt-item-sub">科学的にエフィカシーを高め、各界にパイオニアを輩出する。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div id="about">
@@ -344,7 +382,7 @@
     <div class="section-rule"></div>
     <div class="coming-soon-box">
       <div class="coming-soon-mark">
-        <svg width="64" height="70" viewBox="0 0 120 132" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
+        <svg width="64" height="70" viewBox="0 0 120 132" fill="none"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
       </div>
       <p class="coming-soon-label">Coming Soon</p>
       <div data-lang="ja"><p class="coming-soon-title">準備中</p><p class="coming-soon-desc">講演・活動実績は現在準備中です。<br>近日公開予定です。</p></div>
@@ -362,7 +400,7 @@
     <div class="section-rule"></div>
     <div class="coming-soon-box">
       <div class="coming-soon-mark">
-        <svg width="64" height="70" viewBox="0 0 120 132" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
+        <svg width="64" height="70" viewBox="0 0 120 132" fill="none"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#1D3A6B" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
       </div>
       <p class="coming-soon-label">Coming Soon</p>
       <div data-lang="ja"><p class="coming-soon-title">準備中</p><p class="coming-soon-desc">ニュース・最新情報は現在準備中です。<br>近日公開予定です。</p></div>
@@ -401,27 +439,46 @@
     <div data-lang="ja"><h2 class="section-title">お問い合わせ</h2><p class="section-title-sub">Get in Touch</p></div>
     <div data-lang="en"><h2 class="section-title">Get in Touch</h2><p class="section-title-sub">お問い合わせ</p></div>
     <div class="section-rule" style="margin: 0 auto 3rem;"></div>
-    <div data-lang="ja"><p class="contact-desc">講演依頼・研究協力・パートナーシップに関するお問い合わせは、下記メールアドレスまでお気軽にご連絡ください。</p></div>
-    <div data-lang="en"><p class="contact-desc">For lecture inquiries, research collaborations, or partnership opportunities — we would be glad to hear from you.</p></div>
-    <a href="mailto:contact@ldl.org" class="contact-email">contact@ldl.org</a>
+    <div data-lang="ja"><p class="contact-desc">講演依頼・研究協力・パートナーシップに関するお問い合わせは、下記フォームよりお気軽にご連絡ください。3営業日以内にご返信いたします。</p></div>
+    <div data-lang="en"><p class="contact-desc">For lecture inquiries, research collaborations, or partnership opportunities — we would be glad to hear from you. We aim to respond within 3 business days.</p></div>
+    <a href="https://forms.gle/Hwe8ZHmrmRvhH9oj8" target="_blank" rel="noopener" class="contact-btn">
+      <span data-lang-inline="ja">お問い合わせフォームへ</span>
+      <span data-lang-inline="en">Contact Form</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
   </div>
 </div>
 
 <footer>
-  <div class="footer-logo">LDL</div>
-  <div class="footer-center">
-    <div class="footer-social">
-      <!-- Instagram
-      <a href="https://www.instagram.com/ldl_official/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      LinkedIn
-      <a href="https://www.linkedin.com/company/luminaries-development-lab/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      -->
+  <div class="footer-top">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-col-title">Location</p>
+        <address>
+          〒263-0031<br>
+          千葉県千葉市稲毛区轟町1-5-13
+        </address>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Contact</p>
+        <a href="mailto:contact@ldl.org">contact@ldl.org</a>
+        <a href="https://note.com/ldl_jp" target="_blank" rel="noopener">Note</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Legal</p>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法に基づく表記</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-copy">© 2026 Luminaries Development Lab. All rights reserved.</div>
+  <div class="footer-bottom">
+    <div><p class="footer-legal-name">一般社団法人LDL</p><p class="footer-copy">© 2026 Luminaries Development Lab. All rights reserved.</p></div>
+    <div class="footer-legal-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -448,20 +505,13 @@
     document.body.style.overflow = '';
   }
 
-  // 背景クリックで閉じる
   document.getElementById('videoModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
 
-  // ESCキーで閉じる
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
-
-  // PV一時非公開中
-  // window.addEventListener('load', function() {
-  //   setTimeout(openModal, 1800);
-  // });
 </script>
 </body>
 </html>
