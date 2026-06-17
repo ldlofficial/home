@@ -89,7 +89,7 @@
     .hero-keywords span { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy); opacity: 0.35; }
     .hero-keywords .dot { opacity: 0.2; font-size: 0.5rem; }
 
-    /* ── VISION / MISSION / TAGLINE ── */
+    /* ── VISION / MISSION ── */
     #vmt { border-top: 0.5px solid var(--border); }
     .vmt-wrap { max-width: 1100px; margin: 0 auto; padding: 7rem 4rem; }
     .vmt-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
@@ -113,6 +113,7 @@
     .section-title-sub { font-size: 0.85rem; color: var(--navy); opacity: 0.4; margin-bottom: 2.5rem; letter-spacing: 0.06em; }
     .section-rule { width: 40px; height: 0.5px; background: var(--gold); margin-bottom: 3rem; }
 
+    /* ── ABOUT ── */
     #about { border-top: 0.5px solid var(--border); }
     .mission-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; }
     .mission-pillar { border-top: 0.5px solid var(--border); padding-top: 2rem; }
@@ -120,6 +121,71 @@
     .mission-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--navy); margin-bottom: 1rem; font-style: italic; }
     .mission-desc { font-size: 0.95rem; line-height: 1.85; color: var(--text); opacity: 0.7; }
 
+    /* ── FOUNDER ── */
+    #founder { border-top: 0.5px solid var(--border); }
+    .founder-inner {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .founder-photo-frame {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .founder-photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 14px -14px -14px 14px;
+      border: 0.5px solid var(--gold);
+      opacity: 0.45;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .founder-photo-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(6%) contrast(1.03);
+    }
+    .founder-text-col { padding-top: 0.5rem; }
+    .founder-name-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+    .founder-name-en {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--navy);
+      opacity: 0.38;
+      letter-spacing: 0.14em;
+      margin-bottom: 1.8rem;
+    }
+    .founder-affil {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 0.5px solid var(--border);
+      padding: 0.55rem 1.1rem;
+      margin-bottom: 2.2rem;
+    }
+    .founder-affil-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .founder-affil-text { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 300; letter-spacing: 0.04em; color: var(--navy); opacity: 0.65; }
+    .founder-rule { width: 32px; height: 0.5px; background: var(--gold); margin-bottom: 1.8rem; }
+    .founder-bio { font-family: var(--font-serif); font-size: 1.0rem; line-height: 2.0; color: var(--text); opacity: 0.75; max-width: 520px; }
+
+    /* ── METHOD ── */
     #method { background: var(--navy); }
     #method .section-label { color: var(--gold); }
     #method .section-title { color: #fff; }
@@ -132,6 +198,7 @@
     .method-name-sub { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; letter-spacing: 0.08em; }
     .method-desc { font-size: 0.92rem; line-height: 1.85; color: rgba(255,255,255,0.58); }
 
+    /* ── ACTIVITIES / NEWS ── */
     #activities { border-top: 0.5px solid var(--border); }
     #news { border-top: 0.5px solid var(--border); }
     .coming-soon-box { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 2rem; text-align: center; border: 0.5px solid var(--border); border-radius: 2px; background: rgba(29,58,107,0.02); }
@@ -140,6 +207,7 @@
     .coming-soon-title { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--navy); margin-bottom: 1rem; opacity: 0.5; }
     .coming-soon-desc { font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.04em; line-height: 1.8; max-width: 400px; }
 
+    /* ── NOTE ── */
     #note { border-top: 0.5px solid var(--border); }
     .note-inner { display: flex; align-items: stretch; border: 0.5px solid var(--border); }
     .note-accent { width: 3px; background: var(--gold); flex-shrink: 0; }
@@ -152,6 +220,7 @@
     .note-cta svg { transition: transform 0.2s; }
     .note-cta:hover svg { transform: translateX(3px); }
 
+    /* ── CONTACT ── */
     #contact { border-top: 0.5px solid var(--border); text-align: center; }
     #contact .section-rule { margin: 0 auto 3rem; }
     .contact-desc { font-size: 1.05rem; line-height: 1.9; color: var(--navy); opacity: 0.7; max-width: 480px; margin: 0 auto 2.5rem; }
@@ -159,10 +228,8 @@
     .contact-btn:hover { background: var(--navy); color: #fff; }
     .contact-btn svg { transition: transform 0.2s; }
     .contact-btn:hover svg { transform: translateX(3px); }
-    .contact-email-sub { margin-top: 0.5rem; }
-    .contact-email-sub a { font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); text-decoration: none; opacity: 0.45; border-bottom: 0.5px solid var(--gold); padding-bottom: 0.15rem; transition: opacity 0.2s; }
-    .contact-email-sub a:hover { opacity: 0.75; }
 
+    /* ── FOOTER ── */
     footer { border-top: 0.5px solid var(--border); padding: 3.5rem 4rem 2rem; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem; margin-bottom: 3rem; }
     .footer-brand { flex-shrink: 0; }
@@ -179,15 +246,10 @@
     .footer-legal-links { display: flex; gap: 1.5rem; }
     .footer-legal-links a { font-family: var(--font-sans); font-size: 0.65rem; color: var(--text-muted); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
     .footer-legal-links a:hover { opacity: 1; }
-    @media (max-width: 768px) {
-      footer { padding: 3rem 1.5rem 2rem; }
-      .footer-top { flex-direction: column; gap: 2.5rem; }
-      .footer-cols { flex-direction: column; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-    }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -198,7 +260,13 @@
       .vmt-item:last-child { padding-left: 0; border-bottom: none; }
       .mission-pillars { grid-template-columns: 1fr; }
       .method-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .founder-photo-frame { max-width: 240px; }
+      .founder-bio { max-width: 100%; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-top { flex-direction: column; gap: 2.5rem; }
+      .footer-cols { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
@@ -212,6 +280,7 @@
   </div>
 </div>
 
+<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">
     <svg width="38" height="42" viewBox="0 0 120 132" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
@@ -220,6 +289,7 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#about"><span data-lang-inline="ja">概要</span><span data-lang-inline="en">About</span></a></li>
+      <li><a href="#founder"><span data-lang-inline="ja">代表者</span><span data-lang-inline="en">Founder</span></a></li>
       <li><a href="#method"><span data-lang-inline="ja">メソッド</span><span data-lang-inline="en">Method</span></a></li>
       <li><a href="#activities"><span data-lang-inline="ja">実績</span><span data-lang-inline="en">Activities</span></a></li>
       <li><a href="#news"><span data-lang-inline="ja">ニュース</span><span data-lang-inline="en">News</span></a></li>
@@ -263,15 +333,13 @@
     <p class="hero-tagline">各界に、パイオニアを。</p>
   </div>
   <div class="hero-keywords">
-    <span>Efficacious</span>
-    <span class="dot">·</span>
-    <span>Altruistic</span>
-    <span class="dot">·</span>
+    <span>Efficacious</span><span class="dot">·</span>
+    <span>Altruistic</span><span class="dot">·</span>
     <span>Passionate</span>
   </div>
 </section>
 
-<!-- VISION / MISSION / TAGLINE -->
+<!-- VISION / MISSION -->
 <div id="vmt">
   <div class="vmt-wrap">
     <div class="vmt-header">
@@ -301,7 +369,6 @@
           <p class="vmt-item-sub">科学的にエフィカシーを高め、各界にパイオニアを輩出する。</p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -313,8 +380,8 @@
     <div data-lang="ja"><h2 class="section-title">私たちについて</h2><p class="section-title-sub">About Luminaries Development Lab</p></div>
     <div data-lang="en"><h2 class="section-title">Our Mission</h2><p class="section-title-sub">ルミナリーズ開発研究所について</p></div>
     <div class="section-rule"></div>
-    <div data-lang="ja"><p style="font-size:1.05rem; line-height:1.95; color:var(--text); opacity:0.8; margin-bottom:3rem; max-width:640px;">ルミナリーズ開発研究所（LDL）は、米国カリフォルニア大学バークレー校を発祥とする能力開発研究所です。ビジネス・政治・アート・スポーツなど、あらゆる分野において卓越したパイオニアを輩出することを使命としています。</p></div>
-    <div data-lang="en"><p style="font-size:1.05rem; line-height:1.95; color:var(--text); opacity:0.8; margin-bottom:3rem; max-width:640px;">Luminaries Development Lab (LDL) is a human development research organization founded at the University of California, Berkeley, dedicated to producing exceptional pioneers across all fields — business, politics, arts, and music.</p></div>
+    <div data-lang="ja"><p style="font-size:1.05rem;line-height:1.95;color:var(--text);opacity:0.8;margin-bottom:3rem;max-width:640px;">ルミナリーズ開発研究所（LDL）は、米国カリフォルニア大学バークレー校を発祥とする能力開発研究所です。ビジネス・政治・アート・スポーツなど、あらゆる分野において卓越したパイオニアを輩出することを使命としています。</p></div>
+    <div data-lang="en"><p style="font-size:1.05rem;line-height:1.95;color:var(--text);opacity:0.8;margin-bottom:3rem;max-width:640px;">Luminaries Development Lab (LDL) is a human development research organization founded at the University of California, Berkeley, dedicated to producing exceptional pioneers across all fields — business, politics, arts, and music.</p></div>
     <div class="mission-pillars">
       <div class="mission-pillar">
         <div class="mission-num">01</div>
@@ -333,6 +400,69 @@
         <div class="mission-title">Extremely Passionate</div>
         <div data-lang="ja"><p class="mission-desc">情熱の炎——真に情熱を持てる分野を見出し、その道で卓越し続けるエネルギーの源とする。</p></div>
         <div data-lang="en"><p class="mission-desc">An unwavering passion — finding the field where one's energy burns brightest and channeling it into sustained excellence.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- FOUNDER（新規追加セクション）                          -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="founder">
+  <div class="section-wrap">
+    <p class="section-label">Founder</p>
+    <div data-lang="ja"><h2 class="section-title">代表者</h2><p class="section-title-sub">Representative Director</p></div>
+    <div data-lang="en"><h2 class="section-title">Representative Director</h2><p class="section-title-sub">代表者</p></div>
+    <div class="section-rule"></div>
+
+    <div class="founder-inner">
+      <!-- 写真 -->
+      <div>
+        <div class="founder-photo-frame">
+          <!--
+            ★ src を実際の写真パスに変更してください
+               例: src="founder.jpg"
+          -->
+          <img src="founder.jpg" alt="大好洪史 — LDL代表">
+        </div>
+      </div>
+
+      <!-- テキスト -->
+      <div class="founder-text-col">
+        <h3 class="founder-name-ja">大好 洪史</h3>
+        <p class="founder-name-en">Koji Oyoshi</p>
+
+        <div class="founder-affil">
+          <span class="founder-affil-dot"></span>
+          <span class="founder-affil-text">
+            <span data-lang-inline="ja">カリフォルニア大学バークレー校　文理学部　認知科学科</span>
+            <span data-lang-inline="en">B.A. Cognitive Science — University of California, Berkeley</span>
+          </span>
+        </div>
+
+        <div class="founder-rule"></div>
+
+        <div data-lang="ja">
+          <p class="founder-bio">
+            <!-- ★ プロフィール文をここに記入してください -->
+            カリフォルニア大学バークレー校で認知科学を学び、人の思考・行動・潜在能力に関する研究に従事。
+            在学中に「エフィカシー（自己能力への確信）」と卓越したパフォーマンスの相関に着目し、
+            科学的な能力開発の体系化を志してルミナリーズ開発研究所（LDL）を設立。
+            ビジネス・アート・スポーツなど、あらゆる分野で真のパイオニアを育てることを使命としている。
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="founder-bio">
+            <!-- ★ Please replace with the actual English bio. -->
+            Studied Cognitive Science at the University of California, Berkeley,
+            with a focus on human cognition, behavior, and latent potential.
+            During his studies, he identified the correlation between efficacy —
+            one's deep belief in one's own capabilities — and exceptional performance,
+            and founded Luminaries Development Lab to systematize a scientific framework
+            for human development. His mission: to cultivate true pioneers
+            across every field, from business and the arts to sports and beyond.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -377,8 +507,8 @@
 <div id="activities">
   <div class="section-wrap">
     <p class="section-label">Activities</p>
-    <div data-lang="ja"><h2 class="section-title">講演・活動実績</h2><p class="section-title-sub">Lectures & Programs</p></div>
-    <div data-lang="en"><h2 class="section-title">Lectures & Programs</h2><p class="section-title-sub">講演・活動実績</p></div>
+    <div data-lang="ja"><h2 class="section-title">講演・活動実績</h2><p class="section-title-sub">Lectures &amp; Programs</p></div>
+    <div data-lang="en"><h2 class="section-title">Lectures &amp; Programs</h2><p class="section-title-sub">講演・活動実績</p></div>
     <div class="section-rule"></div>
     <div class="coming-soon-box">
       <div class="coming-soon-mark">
@@ -409,7 +539,7 @@
   </div>
 </div>
 
-<!-- NOTE (日本語のみ) -->
+<!-- NOTE -->
 <div id="note" data-lang="ja">
   <div class="section-wrap">
     <p class="section-label">Note</p>
@@ -438,7 +568,7 @@
     <p class="section-label">Contact</p>
     <div data-lang="ja"><h2 class="section-title">お問い合わせ</h2><p class="section-title-sub">Get in Touch</p></div>
     <div data-lang="en"><h2 class="section-title">Get in Touch</h2><p class="section-title-sub">お問い合わせ</p></div>
-    <div class="section-rule" style="margin: 0 auto 3rem;"></div>
+    <div class="section-rule" style="margin:0 auto 3rem;"></div>
     <div data-lang="ja"><p class="contact-desc">講演依頼・研究協力・パートナーシップに関するお問い合わせは、下記フォームよりお気軽にご連絡ください。3営業日以内にご返信いたします。</p></div>
     <div data-lang="en"><p class="contact-desc">For lecture inquiries, research collaborations, or partnership opportunities — we would be glad to hear from you. We aim to respond within 3 business days.</p></div>
     <a href="https://forms.gle/Hwe8ZHmrmRvhH9oj8" target="_blank" rel="noopener" class="contact-btn">
@@ -446,19 +576,16 @@
       <span data-lang-inline="en">Contact Form</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
-
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-cols">
       <div class="footer-col">
         <p class="footer-col-title">Location</p>
-        <address>
-          〒263-0031<br>
-          千葉県千葉市稲毛区轟町1-5-13
-        </address>
+        <address>〒263-0031<br>千葉県千葉市稲毛区轟町1-5-13</address>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Contact</p>
@@ -473,7 +600,9 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div><p class="footer-legal-name">一般社団法人LDL</p><p class="footer-copy">© 2026 Luminaries Development Lab. All rights reserved.</p></div>
+    <div>
+      <p class="footer-copy">© 2026 Luminaries Development Lab. All rights reserved.</p>
+    </div>
     <div class="footer-legal-links">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms</a>
