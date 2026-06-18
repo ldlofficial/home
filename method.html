@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メソッド — LDL</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1D3A6B;
+      --gold: #B8963E;
+      --cream: #F9F7F2;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: rgba(29,58,107,0.15);
+      --font-serif: 'EB Garamond', 'Noto Serif JP', Georgia, serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-serif); color: var(--text); background: var(--cream); overflow-x: hidden; }
+
+    [data-lang] { display: none; }
+    body.lang-ja [data-lang="ja"] { display: block; }
+    body.lang-en [data-lang="en"] { display: block; }
+    body.lang-ja [data-lang-inline="ja"] { display: inline; }
+    body.lang-en [data-lang-inline="en"] { display: inline; }
+    [data-lang-inline] { display: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(249,247,242,0.93);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.18em; display: flex; flex-direction: column; gap: 0.1rem; }
+    .nav-logo-sub { font-family: var(--font-sans); font-size: 0.52rem; font-weight: 300; letter-spacing: 0.14em; color: var(--navy); opacity: 0.4; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); text-decoration: none; opacity: 0.65; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .lang-toggle { display: flex; align-items: center; border: 0.5px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .lang-btn { font-family: var(--font-sans); font-size: 0.65rem; font-weight: 400; letter-spacing: 0.1em; padding: 0.3rem 0.75rem; cursor: pointer; border: none; background: transparent; color: var(--navy); opacity: 0.45; transition: all 0.2s; }
+    .lang-btn.active { background: var(--navy); color: #fff; opacity: 1; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 10rem 4rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .page-hero-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .page-hero-title em { font-style: italic; color: var(--gold); }
+
+    /* ── なぜ認知科学なのか ── */
+    .why-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 4rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .why-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .why-label {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-top: 0.4rem;
+    }
+    .why-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+    .why-body {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 2.0;
+      color: var(--text);
+      opacity: 0.72;
+      margin-bottom: 1rem;
+    }
+    .why-body:last-child { margin-bottom: 0; }
+
+    /* ── METHOD CARDS ── */
+    .method-wrap {
+      background: var(--navy);
+      padding: 7rem 4rem;
+    }
+    .method-inner { max-width: 1100px; margin: 0 auto; }
+    .method-section-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .method-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .method-section-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.06em;
+    }
+    .method-section-rule { width: 40px; height: 0.5px; background: var(--gold); margin-bottom: 4rem; }
+    .method-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; }
+    .method-card { border-top: 0.5px solid rgba(255,255,255,0.18); padding-top: 2rem; }
+    .method-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold); opacity: 0.35; line-height: 1; margin-bottom: 1rem; }
+    .method-name { font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.25rem; }
+    .method-name-sub { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; letter-spacing: 0.08em; }
+    .method-desc { font-size: 0.92rem; line-height: 1.85; color: rgba(255,255,255,0.58); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 0.5px solid var(--border); padding: 3.5rem 4rem 2rem; }
+    .footer-cols { display: flex; gap: 4rem; margin-bottom: 3rem; }
+    .footer-col-title { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .footer-col p, .footer-col address { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-muted); line-height: 1.8; font-style: normal; }
+    .footer-col a { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-muted); text-decoration: none; display: block; line-height: 1.8; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--navy); }
+    .footer-bottom { border-top: 0.5px solid var(--border); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-family: var(--font-sans); font-size: 0.65rem; color: var(--text-muted); opacity: 0.7; }
+    .footer-legal-links { display: flex; gap: 1.5rem; }
+    .footer-legal-links a { font-family: var(--font-sans); font-size: 0.65rem; color: var(--text-muted); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
+    .footer-legal-links a:hover { opacity: 1; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .page-hero-label, .page-hero-title { animation: fadeUp 0.9s ease both; }
+    .page-hero-title { animation-delay: 0.1s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero, .why-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding-top: 8rem; }
+      .why-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .method-wrap { padding: 5rem 1.5rem; }
+      .method-grid { grid-template-columns: 1fr; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-cols { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body class="lang-ja">
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="38" height="42" viewBox="0 0 120 132" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="60.00" y1="14.00" x2="105.03" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="14.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="105.03" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="40.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="60.00" y2="118.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="105.03" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="92.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="60.00" y1="118.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><line x1="14.97" y1="92.00" x2="14.97" y2="40.00" stroke="#8899BB" stroke-width="0.9" opacity="0.55"/><polygon points="60.00,14.00 105.03,40.00 105.03,92.00 60.00,118.00 14.97,92.00 14.97,40.00" fill="none" stroke="#1D3A6B" stroke-width="2.5"/><circle cx="60.00" cy="14.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="105.03" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="60.00" cy="118.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="92.00" r="5" fill="#1D3A6B"/><circle cx="14.97" cy="40.00" r="5" fill="#1D3A6B"/><circle cx="60" cy="66" r="5.5" fill="#1D3A6B"/></svg>
+    <span class="nav-logo-text">LDL<span class="nav-logo-sub">Luminaries Development Lab</span></span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html"><span data-lang-inline="ja">団体概要</span><span data-lang-inline="en">About</span></a></li>
+      <li><a href="method.html" class="active"><span data-lang-inline="ja">メソッド</span><span data-lang-inline="en">Method</span></a></li>
+      <li><a href="activities.html"><span data-lang-inline="ja">実績</span><span data-lang-inline="en">Activities</span></a></li>
+      <li><a href="contact.html"><span data-lang-inline="ja">お問い合わせ</span><span data-lang-inline="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('ja')">JP</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-hero-label">Methodology</p>
+  <div data-lang="ja"><h1 class="page-hero-title">教育メソッド</h1></div>
+  <div data-lang="en"><h1 class="page-hero-title">The LDL <em>Approach</em></h1></div>
+</div>
+
+<!-- なぜ認知科学なのか -->
+<div class="why-wrap">
+  <div class="why-inner">
+    <p class="why-label"><span data-lang-inline="ja">なぜ、認知科学なのか</span><span data-lang-inline="en">Why Cognitive Science</span></p>
+    <div>
+      <div data-lang="ja">
+        <p class="why-title">人がどう知覚し、記憶し、判断し、行動するか。</p>
+        <p class="why-body">そのメカニズムを科学的に解明するのが認知科学です。</p>
+        <p class="why-body">パフォーマンスの差は、才能や努力だけでは説明できません。その根本には、脳と心の「使い方」があります。LDLは認知科学の知見を実践に落とし込むことで、各個人のエフィカシーを高め、思考と行動のパターンそのものを変えていきます。</p>
+      </div>
+      <div data-lang="en">
+        <p class="why-title">How do people perceive, remember, judge, and act?</p>
+        <p class="why-body">Cognitive science is the field that seeks to answer these questions scientifically.</p>
+        <p class="why-body">Differences in performance cannot be explained by talent or effort alone. At the root is how the brain and mind are used. LDL translates the insights of cognitive science into practice — raising each individual's efficacy and transforming the patterns of thought and action that shape their results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METHOD CARDS -->
+<div class="method-wrap">
+  <div class="method-inner">
+    <p class="method-section-label">Approach</p>
+    <div data-lang="ja"><h2 class="method-section-title">3つのアプローチ</h2><p class="method-section-sub">The Three Pillars of Methodology</p></div>
+    <div data-lang="en"><h2 class="method-section-title">Three Pillars</h2><p class="method-section-sub">3つのアプローチ</p></div>
+    <div class="method-section-rule"></div>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-name"><span data-lang-inline="ja">認知神経科学</span><span data-lang-inline="en">Cognitive Neuroscience</span></div>
+        <div class="method-name-sub"><span data-lang-inline="ja">Cognitive Neuroscience</span><span data-lang-inline="en">認知神経科学</span></div>
+        <div data-lang="ja"><p class="method-desc">神経可塑性・集中力・実行機能に関する最新の研究を基に、脳の仕組みを理解し、より賢く・より高いパフォーマンスで働くための方法を教育します。</p></div>
+        <div data-lang="en"><p class="method-desc">Grounded in the latest research on neuroplasticity, focus, and executive function — we teach how the brain works to help individuals perform at peak levels.</p></div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-name"><span data-lang-inline="ja">認知心理学</span><span data-lang-inline="en">Cognitive Psychology</span></div>
+        <div class="method-name-sub"><span data-lang-inline="ja">Cognitive Psychology</span><span data-lang-inline="en">認知心理学</span></div>
+        <div data-lang="ja"><p class="method-desc">行動・動機・マインドセットのエビデンスベースモデルを活用し、エフィカシーの向上とゴール設定を通じて、各個人の潜在能力を最大限に引き出します。</p></div>
+        <div data-lang="en"><p class="method-desc">Applying evidence-based models of behavior, motivation, and mindset to unlock each individual's highest potential through goal-setting and efficacy development.</p></div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-name"><span data-lang-inline="ja">倫理教育</span><span data-lang-inline="en">Ethics Education</span></div>
+        <div class="method-name-sub"><span data-lang-inline="ja">Ethics Education</span><span data-lang-inline="en">倫理教育</span></div>
+        <div data-lang="ja"><p class="method-desc">卓越した能力は、高い倫理性なしには完成しません。あらゆる分野で真の卓越を発揮するために必要な道徳的基盤を育成します。</p></div>
+        <div data-lang="en"><p class="method-desc">Extraordinary capability without integrity is incomplete. We cultivate the moral foundation necessary to wield excellence responsibly across every sphere of life.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <p class="footer-col-title">Location</p>
+      <address>〒263-0031<br>千葉県千葉市稲毛区轟町1-5-13</address>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact</p>
+      <a href="mailto:contact@ldl.org">contact@ldl.org</a>
+      <a href="https://note.com/ldl_jp" target="_blank" rel="noopener">Note</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Legal</p>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法に基づく表記</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Luminaries Development Lab. All rights reserved.</p>
+    <div class="footer-legal-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === (lang === 'ja' ? 'jp' : 'en'));
+    });
+  }
+</script>
+</body>
+</html>
