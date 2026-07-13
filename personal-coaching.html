@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<template id="__bundler_thumbnail" data-bg-color="#ffffff">
+  <svg viewBox="0 0 100 56" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="56" fill="#ffffff"/>
+    <text x="10" y="30" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#14161c">LDL</text>
+    <circle cx="72" cy="26" r="14" fill="#1c2a5e"/>
+  </svg>
+</template>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  * { box-sizing: border-box; }
+  a { color: #3b4a8c; }
+  a:hover { color: #14161c; }
+  .ldl-nav-link { position: relative; }
+  .ldl-nav-underline { position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: #3b4a8c; transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+  .ldl-nav-link:hover .ldl-nav-underline { transform: scaleX(1); }
+  .ldl-nav-item-wrap { position: relative; }
+  .ldl-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; width: max-content; transition: opacity 0.2s ease; }
+  .ldl-dropdown-panel { min-width: 176px; background: #ffffff; border: 1px solid #ececef; box-shadow: 0 12px 32px rgba(20,22,28,0.08); padding: 10px 0; }
+  .ldl-dropdown-link { display: block; padding: 12px 22px; font: 400 13px/1.4 'Noto Sans JP', sans-serif; color: #14161c; text-decoration: none; white-space: nowrap; transition: color 0.2s ease, background 0.2s ease; }
+  .ldl-dropdown-link:hover { background: #f7f7f9; color: #3b4a8c; }
+  .ldl-footer-link { position: relative; display: inline-block; }
+  .ldl-footer-underline { position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: #9aa0aa; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .ldl-footer-link:hover .ldl-footer-underline { transform: scaleX(1); }
+  .ldl-legal-link { transition: color 0.2s ease; }
+  .ldl-legal-link:hover { color: #14161c !important; }
+  @keyframes ldlFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .ldl-anim { opacity: 0; animation: ldlFadeUp 1.6s cubic-bezier(0.25, 0.1, 0.25, 1) both; }
+  .ldl-anim-1 { animation-delay: 0.1s; }
+  .ldl-anim-2 { animation-delay: 0.45s; }
+  @media (prefers-reduced-motion: reduce) {
+    .ldl-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+  .ldl-reveal { opacity: 0; transform: translateY(16px); transition: opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1), transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1); }
+  .ldl-reveal.ldl-reveal-visible { opacity: 1; transform: translateY(0); }
+  .ldl-reveal-d1 { transition-delay: 0.05s; }
+  .ldl-reveal-d2 { transition-delay: 0.22s; }
+  .ldl-reveal-d3 { transition-delay: 0.4s; }
+  .ldl-reveal-d4 { transition-delay: 0.58s; }
+  @media (prefers-reduced-motion: reduce) {
+    .ldl-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+  @media (max-width: 780px) {
+    .ldl-footer-top { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 28px !important; }
+    .ldl-footer-sitemap { grid-template-columns: repeat(2, 1fr) !important; text-align: center !important; width: auto !important; max-width: 340px !important; margin: 0 auto !important; gap: 32px !important; }
+    .ldl-footer-sitemap a, .ldl-footer-sitemap > div > div { text-align: center !important; }
+    .ldl-footer-sitemap > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
+    .ldl-footer-link { width: fit-content !important; }
+    .ldl-footer-underline { left: 50% !important; right: auto !important; width: 100% !important; transform: translateX(-50%) scaleX(0) !important; }
+    .ldl-footer-link:hover .ldl-footer-underline { transform: translateX(-50%) scaleX(1) !important; }
+    .ldl-footer-bottom { flex-direction: column !important; gap: 12px !important; text-align: center !important; justify-content: center !important; }
+    .ldl-topbar { padding: 10px 20px !important; }
+    .ldl-nav-links { display: none !important; }
+    .ldl-hamburger-btn { display: flex !important; }
+    .ldl-section-1 { padding: 96px 28px !important; }
+    .ldl-section-1 h2 { font-size: 30px !important; }
+    .ldl-section-3-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .ldl-section-4-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .ldl-fit-divider { display: none !important; }
+    .ldl-section-5-plans { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .ldl-pricing-row { grid-template-columns: 1fr !important; gap: 6px !important; }
+    .ldl-section-6 { padding: 96px 28px !important; }
+    .ldl-section-6 h2 { font-size: 26px !important; }
+  }
+  @media (min-width: 781px) {
+    .ldl-hamburger-btn { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative; width:100%; background:#ffffff; font-family:'Noto Sans JP', sans-serif;" data-screen-label="Coaching (Services)">
+
+  <div class="ldl-topbar" style="position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:14px 56px; gap:24px; border-bottom:1px solid #f0f0f2;">
+    <a href="index.html" style="display:block; flex-shrink:0;"><img src="assets/logo.png" alt="LDL - Luminaries Development Lab" style="height:clamp(58px,7vw,86px); width:auto; display:block;" /></a>
+    <div style="display:flex; align-items:center; gap:40px; flex:1; justify-content:flex-end;">
+      <nav class="ldl-nav-links" style="display:flex; align-items:center; gap:34px;">
+        <sc-for list="{{ headerNavItems }}" as="item" hint-placeholder-count="5">
+          <div class="ldl-nav-item-wrap" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}">
+            <a href="{{ item.href }}" class="ldl-nav-link" style="{{ item.navLinkStyle }}">
+              {{ item.label }}
+              <span class="ldl-nav-underline" style="{{ item.navUnderlineStyle }}"></span>
+            </a>
+            <sc-if value="{{ item.children }}" hint-placeholder-val="{{ false }}">
+              <div class="ldl-dropdown" style="{{ item.dropdownStyle }}" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}">
+                <div class="ldl-dropdown-panel">
+                  <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+                    <a href="{{ child.href }}" class="ldl-dropdown-link">{{ child.label }}</a>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </nav>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4lhmC5cHD82mSO-J9GodRcRdzPND4b44hjS5qV4HW4Ribcg/viewform" target="_blank" rel="noopener" onMouseEnter="{{ onContactEnter }}" onMouseLeave="{{ onContactLeave }}" style="{{ contactBtnStyle }}">Contact</a>
+      <button aria-label="menu" onClick="{{ toggleMenu }}" class="ldl-hamburger-btn" style="background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:6px; align-items:flex-end; flex-shrink:0;">
+        <span style="display:block; width:26px; height:2px; background:#12141a;"></span>
+        <span style="display:block; width:26px; height:2px; background:#12141a;"></span>
+      </button>
+    </div>
+  </div>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:20; background:rgba(12,15,26,0.98); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px;">
+      <button aria-label="close" onClick="{{ toggleMenu }}" style="position:absolute; top:34px; right:44px; background:none; border:none; cursor:pointer; color:#f4f5f8; font-size:28px; font-weight:300; line-height:1;">✕</button>
+      <sc-for list="{{ overlayNavItems }}" as="item" hint-placeholder-count="6">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+          <a href="{{ item.href }}" target="{{ item.target }}" onClick="{{ toggleMenu }}" style="font:400 15px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; text-transform:uppercase; color:#e8e9ee; text-decoration:none; padding:6px 0;">{{ item.label }}</a>
+          <sc-if value="{{ item.children }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+              <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+                <a href="{{ child.href }}" onClick="{{ toggleMenu }}" style="font:400 13px/1 'Noto Sans JP', sans-serif; letter-spacing:0.08em; color:rgba(232,233,238,0.55); text-decoration:none; padding:2px 0;">{{ child.label }}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <section class="ldl-section-1" style="position:relative; padding:180px 56px; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;" data-screen-label="Section 1 — Intro">
+    <img src="assets/coaching-hero-bg.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom;" />
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.9) 45%, rgba(255,255,255,0.6) 100%);"></div>
+    <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <h2 class="ldl-anim ldl-anim-1" style="margin:0; font:600 clamp(32px,4.6vw,58px)/1.5 'Shippori Mincho', serif; color:#14161c; letter-spacing:0.01em;">パーソナルコーチング</h2>
+      <p class="ldl-anim ldl-anim-2" style="margin:0; max-width:560px; font:400 clamp(15px,1.8vw,19px)/1.9 'Shippori Mincho', serif; color:#5a606b;">認知科学の知見をもとに、一人ひとりの可能性に向き合う。</p>
+    </div>
+  </section>
+
+  <section style="padding:120px 56px; background:#fafafb;" data-screen-label="Section 2 — What is Coaching">
+    <div style="max-width:760px; margin:0 auto;">
+      <div class="ldl-reveal ldl-reveal-d1" style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:40px;">コーチングとは</div>
+      <div class="ldl-reveal ldl-reveal-d2" style="font:600 20px/1.6 'Shippori Mincho', serif; color:#14161c; margin-bottom:24px;">「コーチ(coach)」はもともと馬車を意味する言葉</div>
+      <p class="ldl-reveal ldl-reveal-d3" style="margin:0; font:400 16px/2.1 'Noto Sans JP', sans-serif; color:#3a3f48;">人を、今いる場所から、望む場所へと運ぶもの。その意味は、今も変わりません。コーチングとは、クライアント様自身の中にある答えやゴールに向かって進んでいくことを、対話を通じて支える営みです。LDLのパーソナルコーチングも、この本来の意味に立ち返り、認知科学の知見を用いながら、一人ひとりが自分自身の力でゴールへと向かうプロセスに伴走します。</p>
+    </div>
+  </section>
+
+  <section style="padding:120px 56px;" data-screen-label="Section 3 — Benefits">
+    <div style="max-width:760px; margin:0 auto;">
+      <div style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:16px;">得られる効果</div>
+      <div class="ldl-section-3-inner" style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:40px;">
+        <div class="ldl-reveal ldl-reveal-d1">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c; margin-bottom:14px;">内側の動機に気づく</div>
+          <p style="margin:0; font:400 14px/1.9 'Noto Sans JP', sans-serif; color:#5a606b;">「本当はこうありたい」という、自分の内側にある動機(want to)に気づけるようになります。</p>
+        </div>
+        <div class="ldl-reveal ldl-reveal-d2">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c; margin-bottom:14px;">現状の外側にゴールを描く</div>
+          <p style="margin:0; font:400 14px/1.9 'Noto Sans JP', sans-serif; color:#5a606b;">今の延長線上ではなく、現状の外側にゴールを設定できるようになります。</p>
+        </div>
+        <div class="ldl-reveal ldl-reveal-d3">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c; margin-bottom:14px;">機会に気づく力が変わる</div>
+          <p style="margin:0; font:400 14px/1.9 'Noto Sans JP', sans-serif; color:#5a606b;">人の脳には、日々触れる膨大な情報の中から「自分にとって重要だ」と判断したものだけを拾い上げる機能(RAS)があります。視覚に限らず、聴覚など複数の感覚に働きます。ゴールが明確になることで、関連する情報やチャンスに自然と気づけるようになります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative; height:280px; overflow:hidden;" data-screen-label="Section 3.5 — Divider Image">
+    <img src="assets/coaching-divider.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+  </section>
+
+  <section style="padding:120px 56px; background:#fafafb;" data-screen-label="Section 4 — Fit">
+    <div style="max-width:760px; margin:0 auto;">
+      <div style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:56px;">適性</div>
+      <div class="ldl-section-4-inner" style="display:grid; grid-template-columns:1fr 1px 1fr; gap:40px; padding-top:32px; border-top:1px solid #ececef;">
+        <div class="ldl-reveal ldl-reveal-d1">
+          <div style="font:600 17px/1.5 'Shippori Mincho', serif; color:#14161c; margin-bottom:24px;">向いている人</div>
+          <p style="margin:0 0 14px; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#5a606b;">現状を本気で変えたいという、明確な意志がある方</p>
+          <p style="margin:0 0 14px; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#5a606b;">今の状況に満足しておらず、真剣に向き合いたい方</p>
+          <p style="margin:0 0 14px; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#5a606b;">具体的に達成したいゴールを持っている方</p>
+          <p style="margin:0; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#5a606b;">自分の可能性を、意識的に広げていきたい方</p>
+        </div>
+        <div class="ldl-fit-divider" style="background:#ececef;"></div>
+        <div class="ldl-reveal ldl-reveal-d2">
+          <div style="font:600 17px/1.5 'Shippori Mincho', serif; color:#9aa0aa; margin-bottom:24px;">向いていない人</div>
+          <p style="margin:0 0 14px; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#9aa0aa;">まだ変化に踏み出す準備が整っていない方</p>
+          <p style="margin:0 0 14px; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#9aa0aa;">今の状況にすでに満足している方</p>
+          <p style="margin:0; font:400 14px/1.8 'Noto Sans JP', sans-serif; color:#9aa0aa;">現時点で、変わりたいという気持ちが固まっていない方</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:120px 56px;" data-screen-label="Section 5 — Format and Pricing">
+    <div style="max-width:760px; margin:0 auto;">
+      <div style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:48px;">料金</div>
+      <div class="ldl-reveal ldl-reveal-d1">
+        <div class="ldl-pricing-row" style="display:grid; grid-template-columns:200px 1fr 110px; gap:16px; align-items:baseline; padding:26px 0; border-top:1px solid #ececef;">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c;">無料カウンセリング</div>
+          <div style="font:400 13px/1.7 'Noto Sans JP', sans-serif; color:#9aa0aa;">コーチングの内容・進め方についてご説明します</div>
+          <div style="font:600 18px/1 'Shippori Mincho', serif; color:#9aa0aa; text-align:right;">無料</div>
+        </div>
+        <div class="ldl-pricing-row" style="display:grid; grid-template-columns:200px 1fr 110px; gap:16px; align-items:baseline; padding:26px 0; border-top:1px solid #ececef;">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c;">4回コース</div>
+          <div style="font:400 13px/1.7 'Noto Sans JP', sans-serif; color:#5a606b;">ゴールの明確化と行動計画づくりに取り組みます</div>
+          <div style="font:600 18px/1 'Shippori Mincho', serif; color:#14161c; text-align:right;">¥450,000</div>
+        </div>
+        <div class="ldl-pricing-row" style="display:grid; grid-template-columns:200px 1fr 110px; gap:16px; align-items:baseline; padding:26px 0; border-top:1px solid #ececef; border-bottom:1px solid #ececef;">
+          <div style="font:600 15px/1.5 'Shippori Mincho', serif; color:#14161c;">8回コース</div>
+          <div style="font:400 13px/1.7 'Noto Sans JP', sans-serif; color:#5a606b;">より継続的に変化を定着させていきます</div>
+          <div style="font:600 18px/1 'Shippori Mincho', serif; color:#14161c; text-align:right;">¥700,000</div>
+        </div>
+      </div>
+      <p class="ldl-reveal ldl-reveal-d2" style="margin:32px 0 0; font:400 13px/1.9 'Noto Sans JP', sans-serif; color:#9aa0aa;">1セッション90分。オンライン・対面は固定ではなく、クライアント様の所在地に応じて柔軟に選択いただけます。</p>
+    </div>
+  </section>
+
+  <section class="ldl-section-6" style="padding:160px 56px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:32px; background:#14161c;" data-screen-label="Section 6 — CTA">
+    <h2 class="ldl-reveal ldl-reveal-d1" style="margin:0; max-width:640px; font:600 clamp(24px,3.2vw,38px)/1.6 'Shippori Mincho', serif; color:#ffffff;">まずは、無料カウンセリングから。</h2>
+    <a href="#trial-session" class="ldl-reveal ldl-reveal-d2" onMouseEnter="{{ onCtaEnter }}" onMouseLeave="{{ onCtaLeave }}" style="{{ ctaBtnStyle }}">無料カウンセリング/体験セッションの予約</a>
+  </section>
+
+  <footer style="background:#ffffff; font-family:'Noto Sans JP', sans-serif; padding:72px 56px 28px; border-top:1px solid #f0f0f2;" data-screen-label="Footer">
+    <div class="ldl-footer-top" style="display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; max-width:1280px; margin:0 auto; padding-bottom:56px;">
+      <div class="ldl-footer-sitemap" style="display:grid; grid-template-columns:repeat(5, minmax(120px,1fr)); gap:56px; width:100%; max-width:920px;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+          <div>
+            <div style="font:500 13px/1 'Noto Sans JP', sans-serif; color:#14161c; margin-bottom:16px;">{{ item.label }}</div>
+            <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+              <a href="{{ child.href }}" class="ldl-footer-link" style="display:block; margin-bottom:11px; font:400 13px/1.5 'Noto Sans JP', sans-serif; color:#7a808a; text-decoration:none;">
+                {{ child.label }}
+                <span class="ldl-footer-underline"></span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="max-width:1280px; margin:0 auto; border-top:1px solid #ececef;"></div>
+    <div class="ldl-footer-bottom" style="display:flex; align-items:center; justify-content:center; gap:24px; max-width:1280px; margin:0 auto; padding-top:24px;">
+      <div style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa;">© LDL Luminaries Development Lab. All Rights Reserved.</div>
+      <div style="display:flex; align-items:center; gap:24px;">
+        <a href="#privacy" class="ldl-legal-link" style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa; text-decoration:none;">Privacy Policy</a>
+        <a href="#terms" class="ldl-legal-link" style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa; text-decoration:none;">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, contactHover: false, ctaHover: false, openNavIndex: null };
+
+  navCloseTimer = null;
+
+  handleNavEnter = (idx) => {
+    if (this.navCloseTimer) clearTimeout(this.navCloseTimer);
+    this.setState({ openNavIndex: idx });
+  };
+
+  handleNavLeave = () => {
+    if (this.navCloseTimer) clearTimeout(this.navCloseTimer);
+    this.navCloseTimer = setTimeout(() => {
+      this.setState({ openNavIndex: null });
+    }, 300);
+  };
+
+  onContactEnter = () => this.setState({ contactHover: true });
+  onContactLeave = () => this.setState({ contactHover: false });
+  onCtaEnter = () => this.setState({ ctaHover: true });
+  onCtaLeave = () => this.setState({ ctaHover: false });
+
+  currentPage = 'Services';
+
+  navItemsBase = [
+    { label: 'About', href: 'about.html', children: [
+      { label: 'LDLとは', href: 'about.html' },
+    ] },
+    { label: 'Science', href: 'science.html', children: [
+      { label: '認知科学とは', href: 'science.html' },
+    ] },
+    { label: 'Services', href: 'education.html', children: [
+      { label: '教育機関向け', href: 'education.html' },
+      { label: 'パーソナルコーチング', href: 'personal-coaching.html' },
+      { label: 'コーポレートコーチング', href: 'corporate-coaching.html' },
+    ] },
+    { label: 'Impact', href: 'coming-soon.html', children: [
+      { label: '事例一覧', href: 'coming-soon.html' },
+      { label: '実績・数字', href: 'coming-soon.html' },
+      { label: 'パートナー', href: 'coming-soon.html' },
+    ] },
+    { label: 'Insights', href: 'coming-soon.html', children: [
+      { label: '記事一覧', href: 'coming-soon.html' },
+    ] },
+  ];
+
+  navItems = this.navItemsBase.map(item => {
+    const active = item.label === this.currentPage;
+    return {
+      ...item,
+      navLinkStyle: {
+        font: active ? "600 14px/1 'Noto Sans JP', sans-serif" : "500 14px/1 'Noto Sans JP', sans-serif",
+        color: '#14161c',
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+        paddingBottom: '2px',
+      },
+      navUnderlineStyle: active ? { transform: 'scaleX(1)' } : {},
+    };
+  });
+
+  overlayNavItems = [
+    ...this.navItemsBase.map(item => ({
+      label: item.label,
+      href: item.href,
+      children: item.children && item.children.length > 1 ? item.children : null,
+    })),
+    { label: 'Contact', href: 'https://docs.google.com/forms/d/e/1FAIpQLSd4lhmC5cHD82mSO-J9GodRcRdzPND4b44hjS5qV4HW4Ribcg/viewform', target: '_blank' },
+  ];
+
+  toggleMenu = () => {
+    this.setState(s => ({ menuOpen: !s.menuOpen }));
+  };
+
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    const els = document.querySelectorAll('.ldl-reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('ldl-reveal-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ldl-reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    els.forEach(el => observer.observe(el));
+  }
+
+  renderVals() {
+    const contactHover = this.state.contactHover;
+    const contactBtnStyle = {
+      flexShrink: 0,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '9px 13px',
+      background: contactHover ? '#3b4a8c' : '#14161c',
+      color: '#ffffff',
+      font: "500 14px/1 'Noto Sans JP', sans-serif",
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      transition: 'background 0.25s ease, transform 0.25s ease',
+      transform: contactHover ? 'scale(1.035)' : 'scale(1)',
+    };
+    const ctaHover = this.state.ctaHover;
+    const ctaBtnStyle = {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '14px 34px',
+      background: ctaHover ? '#3b4a8c' : '#ffffff',
+      color: ctaHover ? '#ffffff' : '#14161c',
+      font: "500 14px/1 'Noto Sans JP', sans-serif",
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      transition: 'background 0.25s ease, color 0.25s ease, transform 0.25s ease',
+      transform: ctaHover ? 'scale(1.03)' : 'scale(1)',
+    };
+    const openNavIndex = this.state.openNavIndex;
+    const headerNavItems = this.navItems.map((item, idx) => ({
+      ...item,
+      onEnter: () => this.handleNavEnter(idx),
+      onLeave: this.handleNavLeave,
+      dropdownStyle: item.children ? { opacity: openNavIndex === idx ? 1 : 0, pointerEvents: openNavIndex === idx ? 'auto' : 'none' } : undefined,
+    }));
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu,
+      navItems: this.navItems,
+      headerNavItems: headerNavItems,
+      overlayNavItems: this.overlayNavItems,
+      onContactEnter: this.onContactEnter,
+      onContactLeave: this.onContactLeave,
+      contactBtnStyle: contactBtnStyle,
+      onCtaEnter: this.onCtaEnter,
+      onCtaLeave: this.onCtaLeave,
+      ctaBtnStyle: ctaBtnStyle,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

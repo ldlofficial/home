@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<template id="__bundler_thumbnail" data-bg-color="#ffffff">
+  <svg viewBox="0 0 100 56" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="56" fill="#ffffff"/>
+    <text x="10" y="30" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#14161c">LDL</text>
+    <circle cx="72" cy="26" r="14" fill="#1c2a5e"/>
+  </svg>
+</template>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  * { box-sizing: border-box; }
+  a { color: #3b4a8c; }
+  a:hover { color: #14161c; }
+  .ldl-nav-link { position: relative; }
+  .ldl-nav-underline { position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: #3b4a8c; transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+  .ldl-nav-link:hover .ldl-nav-underline { transform: scaleX(1); }
+  .ldl-nav-item-wrap { position: relative; }
+  .ldl-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; width: max-content; transition: opacity 0.2s ease; }
+  .ldl-dropdown-panel { min-width: 176px; background: #ffffff; border: 1px solid #ececef; box-shadow: 0 12px 32px rgba(20,22,28,0.08); padding: 10px 0; }
+  .ldl-dropdown-link { display: block; padding: 12px 22px; font: 400 13px/1.4 'Noto Sans JP', sans-serif; color: #14161c; text-decoration: none; white-space: nowrap; transition: color 0.2s ease, background 0.2s ease; }
+  .ldl-dropdown-link:hover { background: #f7f7f9; color: #3b4a8c; }
+  .ldl-footer-link { position: relative; display: inline-block; }
+  .ldl-footer-underline { position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: #9aa0aa; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .ldl-footer-link:hover .ldl-footer-underline { transform: scaleX(1); }
+  .ldl-legal-link { transition: color 0.2s ease; }
+  .ldl-legal-link:hover { color: #14161c !important; }
+  .ldl-term-card { cursor: pointer; transition: background 0.25s ease; }
+  .ldl-term-card:hover { background: #fafafb; }
+  .ldl-cta-card { transition: border-color 0.3s ease, transform 0.3s ease; }
+  .ldl-cta-card:hover { border-color: rgba(255,255,255,0.55) !important; transform: translateY(-2px); }
+  .ldl-cta-card-arrow { display: inline-block; transition: transform 0.3s ease, color 0.3s ease; }
+  .ldl-cta-card:hover .ldl-cta-card-arrow { transform: translateX(4px); color: rgba(255,255,255,0.85); }
+  @keyframes ldlFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .ldl-anim { opacity: 0; animation: ldlFadeUp 1.6s cubic-bezier(0.25, 0.1, 0.25, 1) both; }
+  .ldl-anim-1 { animation-delay: 0.1s; }
+  .ldl-anim-2 { animation-delay: 0.45s; }
+  @media (prefers-reduced-motion: reduce) {
+    .ldl-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+  .ldl-reveal { opacity: 0; transform: translateY(16px); transition: opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1), transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1); }
+  .ldl-reveal.ldl-reveal-visible { opacity: 1; transform: translateY(0); }
+  .ldl-reveal-d1 { transition-delay: 0.05s; }
+  .ldl-reveal-d2 { transition-delay: 0.22s; }
+  .ldl-reveal-d3 { transition-delay: 0.4s; }
+  @media (prefers-reduced-motion: reduce) {
+    .ldl-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+  @media (max-width: 780px) {
+    .ldl-footer-top { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 28px !important; }
+    .ldl-footer-sitemap { grid-template-columns: repeat(2, 1fr) !important; text-align: center !important; width: auto !important; max-width: 340px !important; margin: 0 auto !important; gap: 32px !important; }
+    .ldl-footer-sitemap a, .ldl-footer-sitemap > div > div { text-align: center !important; }
+    .ldl-footer-sitemap > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
+    .ldl-footer-link { width: fit-content !important; }
+    .ldl-footer-underline { left: 50% !important; right: auto !important; width: 100% !important; transform: translateX(-50%) scaleX(0) !important; }
+    .ldl-footer-link:hover .ldl-footer-underline { transform: translateX(-50%) scaleX(1) !important; }
+    .ldl-footer-bottom { flex-direction: column !important; gap: 12px !important; text-align: center !important; justify-content: center !important; }
+    .ldl-topbar { padding: 10px 20px !important; }
+    .ldl-nav-links { display: none !important; }
+    .ldl-hamburger-btn { display: flex !important; }
+    .ldl-section-1 { padding: 96px 28px !important; }
+    .ldl-section-1 h2 { font-size: 30px !important; }
+    .ldl-cogsci-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .ldl-terms-grid { grid-template-columns: 1fr !important; }
+    .ldl-term-card { border-right: none !important; }
+    .ldl-cta-cards { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .ldl-section-5 { padding: 96px 28px !important; }
+  }
+  @media (min-width: 781px) {
+    .ldl-hamburger-btn { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative; width:100%; background:#ffffff; font-family:'Noto Sans JP', sans-serif;" data-screen-label="Science">
+
+  <div class="ldl-topbar" style="position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:14px 56px; gap:24px; border-bottom:1px solid #f0f0f2;">
+    <a href="index.html" style="display:block; flex-shrink:0;"><img src="assets/logo.png" alt="LDL - Luminaries Development Lab" style="height:clamp(58px,7vw,86px); width:auto; display:block;" /></a>
+    <div style="display:flex; align-items:center; gap:40px; flex:1; justify-content:flex-end;">
+      <nav class="ldl-nav-links" style="display:flex; align-items:center; gap:34px;">
+        <sc-for list="{{ headerNavItems }}" as="item" hint-placeholder-count="5">
+          <div class="ldl-nav-item-wrap" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}">
+            <a href="{{ item.href }}" class="ldl-nav-link" style="{{ item.navLinkStyle }}">
+              {{ item.label }}
+              <span class="ldl-nav-underline" style="{{ item.navUnderlineStyle }}"></span>
+            </a>
+            <sc-if value="{{ item.children }}" hint-placeholder-val="{{ false }}">
+              <div class="ldl-dropdown" style="{{ item.dropdownStyle }}" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}">
+                <div class="ldl-dropdown-panel">
+                  <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+                    <a href="{{ child.href }}" class="ldl-dropdown-link">{{ child.label }}</a>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </nav>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4lhmC5cHD82mSO-J9GodRcRdzPND4b44hjS5qV4HW4Ribcg/viewform" target="_blank" rel="noopener" onMouseEnter="{{ onContactEnter }}" onMouseLeave="{{ onContactLeave }}" style="{{ contactBtnStyle }}">Contact</a>
+      <button aria-label="menu" onClick="{{ toggleMenu }}" class="ldl-hamburger-btn" style="background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:6px; align-items:flex-end; flex-shrink:0;">
+        <span style="display:block; width:26px; height:2px; background:#12141a;"></span>
+        <span style="display:block; width:26px; height:2px; background:#12141a;"></span>
+      </button>
+    </div>
+  </div>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:20; background:rgba(12,15,26,0.98); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px;">
+      <button aria-label="close" onClick="{{ toggleMenu }}" style="position:absolute; top:34px; right:44px; background:none; border:none; cursor:pointer; color:#f4f5f8; font-size:28px; font-weight:300; line-height:1;">✕</button>
+      <sc-for list="{{ overlayNavItems }}" as="item" hint-placeholder-count="6">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+          <a href="{{ item.href }}" target="{{ item.target }}" onClick="{{ toggleMenu }}" style="font:400 15px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; text-transform:uppercase; color:#e8e9ee; text-decoration:none; padding:6px 0;">{{ item.label }}</a>
+          <sc-if value="{{ item.children }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+              <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+                <a href="{{ child.href }}" onClick="{{ toggleMenu }}" style="font:400 13px/1 'Noto Sans JP', sans-serif; letter-spacing:0.08em; color:rgba(232,233,238,0.55); text-decoration:none; padding:2px 0;">{{ child.label }}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <section class="ldl-section-1" style="position:relative; padding:180px 56px; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;" data-screen-label="Section 1 — Intro">
+    <img src="assets/science-hero-bg.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.92) 45%, rgba(255,255,255,0.7) 100%);"></div>
+    <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <h2 class="ldl-anim ldl-anim-1" style="margin:0; font:600 clamp(32px,4.6vw,58px)/1.5 'Shippori Mincho', serif; color:#14161c; letter-spacing:0.01em;">Science</h2>
+      <p class="ldl-anim ldl-anim-2" style="margin:0; max-width:560px; font:400 clamp(15px,1.8vw,19px)/1.9 'Shippori Mincho', serif; color:#3a3f48;">認知が変わる仕組みには、理由がある。</p>
+    </div>
+  </section>
+
+  <section style="padding:120px 56px; background:#fafafb;" data-screen-label="Section 1.5 — What is Cognitive Science">
+    <div style="max-width:760px; margin:0 auto;">
+      <div class="ldl-reveal ldl-reveal-d1" style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:48px;">認知科学とは</div>
+      <div class="ldl-cogsci-inner" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+        <p class="ldl-reveal ldl-reveal-d2" style="margin:0; font:400 16px/2.1 'Noto Sans JP', sans-serif; color:#3a3f48;">認知科学は、心理学・神経科学・言語学・計算機科学・哲学など、複数の学問領域にまたがる学際的な分野です。人間の知覚・記憶・意思決定・学習・言語・行動といった「心の働き」を、科学的な手法で研究します。</p>
+        <div class="ldl-reveal ldl-reveal-d3" style="display:flex; justify-content:center;">
+          <svg viewBox="0 0 380 320" style="width:100%; max-width:340px; height:auto;">
+            <polygon points="190,30 299,95 299,225 190,290 81,225 81,95" fill="none" stroke="#d7dae0" stroke-width="1"/>
+            <line x1="190" y1="30" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+            <line x1="299" y1="95" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+            <line x1="299" y1="225" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+            <line x1="190" y1="290" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+            <line x1="81" y1="225" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+            <line x1="81" y1="95" x2="190" y2="160" stroke="#e4e6ea" stroke-width="1"/>
+
+            <circle cx="190" cy="160" r="46" fill="#ffffff" stroke="#3b4a8c" stroke-width="1.2"/>
+            <text x="190" y="156" text-anchor="middle" font-family="'Shippori Mincho', serif" font-weight="600" font-size="14" fill="#14161c">認知</text>
+            <text x="190" y="174" text-anchor="middle" font-family="'Shippori Mincho', serif" font-weight="600" font-size="14" fill="#14161c">科学</text>
+
+            <circle cx="190" cy="30" r="5" fill="#3b4a8c"/>
+            <text x="190" y="12" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">心理学</text>
+
+            <circle cx="299" cy="95" r="5" fill="#14161c"/>
+            <text x="308" y="90" text-anchor="start" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">神経科学</text>
+
+            <circle cx="299" cy="225" r="5" fill="#14161c"/>
+            <text x="308" y="230" text-anchor="start" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">計算機科学</text>
+
+            <circle cx="190" cy="290" r="5" fill="#3b4a8c"/>
+            <text x="190" y="310" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">哲学</text>
+
+            <circle cx="81" cy="225" r="5" fill="#14161c"/>
+            <text x="72" y="230" text-anchor="end" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">言語学</text>
+
+            <circle cx="81" cy="95" r="5" fill="#14161c"/>
+            <text x="72" y="90" text-anchor="end" font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#3a3f48">人類学</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:120px 56px;" data-screen-label="Section 2 — Coaching is Science">
+    <div style="max-width:760px; margin:0 auto;">
+      <div class="ldl-reveal ldl-reveal-d1" style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:40px;">コーチングは科学である</div>
+      <div class="ldl-reveal ldl-reveal-d2" style="font:600 20px/1.6 'Shippori Mincho', serif; color:#14161c; margin-bottom:24px;">コーチングは、根性論や自己啓発ではありません</div>
+      <p class="ldl-reveal ldl-reveal-d3" style="margin:0; font:400 16px/2.1 'Noto Sans JP', sans-serif; color:#3a3f48;">人間の認知がどのように働き、どのように変化するのかという、認知科学の知見に基づいた営みです。LDLでは、こうした従来の認知科学コーチングに加えて、認知計算神経科学における最新の理論も積極的に取り入れながら、アプローチを開発しています。</p>
+    </div>
+  </section>
+
+  <section style="position:relative; height:280px; overflow:hidden;" data-screen-label="Section 2.5 — Divider Image">
+    <img src="assets/coaching-divider.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+  </section>
+
+  <section style="padding:120px 56px; background:#fafafb;" data-screen-label="Section 3 — Glossary">
+    <div style="max-width:760px; margin:0 auto;">
+      <div class="ldl-reveal ldl-reveal-d1" style="font:500 11px/1 'Noto Sans JP', sans-serif; letter-spacing:0.2em; color:#c3c6cc; margin-bottom:40px;">基本理論・用語集</div>
+      <div class="ldl-terms-grid" style="display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #ececef; border-left:1px solid #ececef;">
+        <sc-for list="{{ terms }}" as="term" hint-placeholder-count="9">
+          <div class="ldl-term-card" onClick="{{ term.onToggle }}" style="border-right:1px solid #ececef; border-bottom:1px solid #ececef; padding:28px 24px; min-height:120px;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:10px;">
+              <div style="font:600 14px/1.5 'Shippori Mincho', serif; color:#14161c;">{{ term.name }}</div>
+              <div style="font:400 14px/1 'Noto Sans JP', sans-serif; color:#c3c6cc; flex-shrink:0;">{{ term.toggleGlyph }}</div>
+            </div>
+            <sc-if value="{{ term.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0; font:400 13px/1.8 'Noto Sans JP', sans-serif; color:#5a606b;">{{ term.description }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section class="ldl-section-5" style="padding:160px 56px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:56px; background:#14161c;" data-screen-label="Section 4 — CTA">
+    <h2 class="ldl-reveal ldl-reveal-d1" style="margin:0; max-width:640px; font:600 clamp(24px,3.2vw,38px)/1.6 'Shippori Mincho', serif; color:#ffffff;">この理論を、現実の変化へ。</h2>
+    <div class="ldl-cta-cards ldl-reveal ldl-reveal-d2" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:640px; width:100%;">
+      <a href="personal-coaching.html" class="ldl-cta-card" style="display:flex; flex-direction:column; gap:8px; padding:32px 28px; border:1px solid rgba(255,255,255,0.2); text-decoration:none;">
+        <div style="font:600 16px/1.5 'Shippori Mincho', serif; color:#ffffff;">パーソナルコーチング</div>
+        <div style="font:400 13px/1 'Noto Sans JP', sans-serif; color:rgba(255,255,255,0.55);">個人向け <span class="ldl-cta-card-arrow">→</span></div>
+      </a>
+      <a href="corporate-coaching.html" class="ldl-cta-card" style="display:flex; flex-direction:column; gap:8px; padding:32px 28px; border:1px solid rgba(255,255,255,0.2); text-decoration:none;">
+        <div style="font:600 16px/1.5 'Shippori Mincho', serif; color:#ffffff;">コーポレートコーチング</div>
+        <div style="font:400 13px/1 'Noto Sans JP', sans-serif; color:rgba(255,255,255,0.55);">組織・団体向け <span class="ldl-cta-card-arrow">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer style="background:#ffffff; font-family:'Noto Sans JP', sans-serif; padding:72px 56px 28px; border-top:1px solid #f0f0f2;" data-screen-label="Footer">
+    <div class="ldl-footer-top" style="display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; max-width:1280px; margin:0 auto; padding-bottom:56px;">
+      <div class="ldl-footer-sitemap" style="display:grid; grid-template-columns:repeat(5, minmax(120px,1fr)); gap:56px; width:100%; max-width:920px;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+          <div>
+            <div style="font:500 13px/1 'Noto Sans JP', sans-serif; color:#14161c; margin-bottom:16px;">{{ item.label }}</div>
+            <sc-for list="{{ item.children }}" as="child" hint-placeholder-count="2">
+              <a href="{{ child.href }}" class="ldl-footer-link" style="display:block; margin-bottom:11px; font:400 13px/1.5 'Noto Sans JP', sans-serif; color:#7a808a; text-decoration:none;">
+                {{ child.label }}
+                <span class="ldl-footer-underline"></span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="max-width:1280px; margin:0 auto; border-top:1px solid #ececef;"></div>
+    <div class="ldl-footer-bottom" style="display:flex; align-items:center; justify-content:center; gap:24px; max-width:1280px; margin:0 auto; padding-top:24px;">
+      <div style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa;">© LDL Luminaries Development Lab. All Rights Reserved.</div>
+      <div style="display:flex; align-items:center; gap:24px;">
+        <a href="#privacy" class="ldl-legal-link" style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa; text-decoration:none;">Privacy Policy</a>
+        <a href="#terms" class="ldl-legal-link" style="font:400 12px/1.5 'Noto Sans JP', sans-serif; color:#9aa0aa; text-decoration:none;">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, contactHover: false, openTerms: {}, openNavIndex: null };
+
+  navCloseTimer = null;
+
+  onContactEnter = () => this.setState({ contactHover: true });
+  onContactLeave = () => this.setState({ contactHover: false });
+
+  handleNavEnter = (idx) => {
+    if (this.navCloseTimer) clearTimeout(this.navCloseTimer);
+    this.setState({ openNavIndex: idx });
+  };
+
+  handleNavLeave = () => {
+    if (this.navCloseTimer) clearTimeout(this.navCloseTimer);
+    this.navCloseTimer = setTimeout(() => {
+      this.setState({ openNavIndex: null });
+    }, 300);
+  };
+
+  currentPage = 'Science';
+
+  navItemsBase = [
+    { label: 'About', href: 'about.html', children: [
+      { label: 'LDLとは', href: 'about.html' },
+    ] },
+    { label: 'Science', href: 'science.html', children: [
+      { label: '認知科学とは', href: 'science.html' },
+    ] },
+    { label: 'Services', href: 'education.html', children: [
+      { label: '教育機関向け', href: 'education.html' },
+      { label: 'パーソナルコーチング', href: 'personal-coaching.html' },
+      { label: 'コーポレートコーチング', href: 'corporate-coaching.html' },
+    ] },
+    { label: 'Impact', href: 'coming-soon.html', children: [
+      { label: '事例一覧', href: 'coming-soon.html' },
+      { label: '実績・数字', href: 'coming-soon.html' },
+      { label: 'パートナー', href: 'coming-soon.html' },
+    ] },
+    { label: 'Insights', href: 'coming-soon.html', children: [
+      { label: '記事一覧', href: 'coming-soon.html' },
+    ] },
+  ];
+
+  navItems = this.navItemsBase.map(item => {
+    const active = item.label === this.currentPage;
+    return {
+      ...item,
+      navLinkStyle: {
+        font: active ? "600 14px/1 'Noto Sans JP', sans-serif" : "500 14px/1 'Noto Sans JP', sans-serif",
+        color: '#14161c',
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+        paddingBottom: '2px',
+      },
+      navUnderlineStyle: active ? { transform: 'scaleX(1)' } : {},
+    };
+  });
+
+  overlayNavItems = [
+    ...this.navItemsBase.map(item => ({
+      label: item.label,
+      href: item.href,
+      children: item.children && item.children.length > 1 ? item.children : null,
+    })),
+    { label: 'Contact', href: 'https://docs.google.com/forms/d/e/1FAIpQLSd4lhmC5cHD82mSO-J9GodRcRdzPND4b44hjS5qV4HW4Ribcg/viewform', target: '_blank' },
+  ];
+
+  toggleMenu = () => {
+    this.setState(s => ({ menuOpen: !s.menuOpen }));
+  };
+
+  termsBase = [
+    { name: 'エフィカシー(自己効力感)', description: '自分ならできる、という感覚。目標達成に向けた行動の土台になります。' },
+    { name: 'RAS(網様体賦活系)', description: '脳が「自分にとって重要だ」と判断した情報だけを拾い上げる機能です。' },
+    { name: 'コンフォートゾーン', description: '慣れ親しんだ空間や状況のことです。' },
+    { name: '認知的不協和', description: '自分の認識と現実にズレがあるときに生まれる、不快な緊張状態です。' },
+    { name: 'スコトーマ(心理的盲点)', description: '重要でないと判断した情報を、視界に入っていても認識できなくなる、心理的な盲点のことです。' },
+    { name: 'セルフトーク', description: '自分自身に対して日々かけている、内面の言葉のことです。' },
+    { name: 'ホメオスタシス', description: '心身を一定の状態に保とうとする働きです。コンフォートゾーンと密接に関わっています。' },
+    { name: 'システム1・システム2', description: '二重過程理論において提唱される、直感的で速い思考(システム1)と、論理的で遅い思考(システム2)という、2つの思考モードのことです。' },
+    { name: 'プロスペクト理論', description: '人は利益より損失を強く避けようとする、という意思決定の理論です。' },
+  ];
+
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    const els = document.querySelectorAll('.ldl-reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('ldl-reveal-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ldl-reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    els.forEach(el => observer.observe(el));
+  }
+
+  toggleTerm = (idx) => {
+    this.setState(s => ({ openTerms: { ...s.openTerms, [idx]: !s.openTerms[idx] } }));
+  };
+
+  renderVals() {
+    const contactHover = this.state.contactHover;
+    const contactBtnStyle = {
+      flexShrink: 0,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '9px 13px',
+      background: contactHover ? '#3b4a8c' : '#14161c',
+      color: '#ffffff',
+      font: "500 14px/1 'Noto Sans JP', sans-serif",
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      transition: 'background 0.25s ease, transform 0.25s ease',
+      transform: contactHover ? 'scale(1.035)' : 'scale(1)',
+    };
+    const terms = this.termsBase.map((t, idx) => ({
+      ...t,
+      open: !!this.state.openTerms[idx],
+      toggleGlyph: this.state.openTerms[idx] ? '−' : '+',
+      onToggle: () => this.toggleTerm(idx),
+    }));
+    const openNavIndex = this.state.openNavIndex;
+    const headerNavItems = this.navItems.map((item, idx) => ({
+      ...item,
+      onEnter: () => this.handleNavEnter(idx),
+      onLeave: this.handleNavLeave,
+      dropdownStyle: item.children ? { opacity: openNavIndex === idx ? 1 : 0, pointerEvents: openNavIndex === idx ? 'auto' : 'none' } : undefined,
+    }));
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu,
+      navItems: this.navItems,
+      headerNavItems: headerNavItems,
+      overlayNavItems: this.overlayNavItems,
+      onContactEnter: this.onContactEnter,
+      onContactLeave: this.onContactLeave,
+      contactBtnStyle: contactBtnStyle,
+      terms: terms,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
